@@ -99,75 +99,82 @@ setInterval(element =>{
 //--------------------------------------------------------
 
 // Ranking Roster AWA
+// Variables
 let btn = document.querySelector('.add')
-var remove = document.querySelector('.draggable');
+let remove = document.querySelector('.draggable')
 
+// Functions 
+// Deplacement LI
 function dragStart(e) {
-  this.style.opacity = '0.4';
-  dragSrcEl = this;
-  e.dataTransfer.effectAllowed = 'move';
-  e.dataTransfer.setData('text/html', this.innerHTML);
+  this.style.opacity = '0.4'
+  dragSrcEl = this
+  e.dataTransfer.effectAllowed = 'move'
+  e.dataTransfer.setData('text/html', this.innerHTML)
 };
 
 function dragEnter(e) {
-  this.classList.add('over');
+  this.classList.add('over')
 }
 
 function dragLeave(e) {
-  e.stopPropagation();
-  this.classList.remove('over');
+  e.stopPropagation()
+  this.classList.remove('over')
 }
 
 function dragOver(e) {
-  e.preventDefault();
-  e.dataTransfer.dropEffect = 'move';
-  return false;
+  e.preventDefault()
+  e.dataTransfer.dropEffect = 'move'
+  return false
 }
 
 function dragDrop(e) {
   if (dragSrcEl != this) {
-    dragSrcEl.innerHTML = this.innerHTML;
-    this.innerHTML = e.dataTransfer.getData('text/html');
+    dragSrcEl.innerHTML = this.innerHTML
+    this.innerHTML = e.dataTransfer.getData('text/html')
   }
   return false;
 }
 
+// Suppression de LI
 function dragEnd(e) {
-  var listItens = document.querySelectorAll('.draggable');
+  let listItens = document.querySelectorAll('.draggable');
   [].forEach.call(listItens, function(item) {
-    item.classList.remove('over');
+    item.classList.remove('over')
   });
-  this.style.opacity = '1';
+  this.style.opacity = '1'
 }
 
 function addEventsDragAndDrop(el) {
-  el.addEventListener('dragstart', dragStart, false);
-  el.addEventListener('dragenter', dragEnter, false);
-  el.addEventListener('dragover', dragOver, false);
-  el.addEventListener('dragleave', dragLeave, false);
-  el.addEventListener('drop', dragDrop, false);
-  el.addEventListener('dragend', dragEnd, false);
+  el.addEventListener('dragstart', dragStart, false)
+  el.addEventListener('dragenter', dragEnter, false)
+  el.addEventListener('dragover', dragOver, false)
+  el.addEventListener('dragleave', dragLeave, false)
+  el.addEventListener('drop', dragDrop, false)
+  el.addEventListener('dragend', dragEnd, false)
 }
 
-var listItens = document.querySelectorAll('.draggable');
+// Variables 
+let listItens = document.querySelectorAll('.draggable');
 [].forEach.call(listItens, function(item) {
-  addEventsDragAndDrop(item);
+  addEventsDragAndDrop(item)
 });
 
+// Methodes Nouveau LI
 function addNewItem() {
-  var newItem = document.querySelector('.input').value;
+  let newItem = document.querySelector('.input').value
   if (newItem != '') {
-    document.querySelector('.input').value = '';
-    var li = document.createElement('li');
-    var attr = document.createAttribute('draggable');
-    var ul = document.querySelector('ul');
-    li.className = 'draggable';
-    attr.value = 'true';
-    li.setAttributeNode(attr);
-    li.appendChild(document.createTextNode(newItem));
-    ul.appendChild(li);
-    addEventsDragAndDrop(li);
+    document.querySelector('.input').value = ''
+    let li = document.createElement('li')
+    let attr = document.createAttribute('draggable')
+    let ul = document.querySelector('ul')
+    li.className = 'draggable'
+    attr.value = 'true'
+    li.setAttributeNode(attr)
+    li.appendChild(document.createTextNode(newItem))
+    ul.appendChild(li)
+    addEventsDragAndDrop(li)
   }
 }
 
-btn.addEventListener('click', addNewItem);
+// Event Button
+btn.addEventListener('click', addNewItem)
