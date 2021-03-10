@@ -8,7 +8,7 @@ html {
 }
 
                        /* Animation Start */
-section {
+.anime {
   padding: 10px;
   position: relative;
   width: 100%;
@@ -28,13 +28,13 @@ section {
       filter: hue-rotate(360deg);
   }
 }
-span {
+.anime span {
   position: relative;
   width: 40px;
   height: 40px;
   display: block;
 }
-span::before {
+.anime span::before {
   content: " ";
   position: absolute;
   top: 0;
@@ -90,6 +90,67 @@ h2{
 .AWA h3{
   background: linear-gradient(to right, #30CFD0 0%, #330867 40%, #000000 70%);
   margin-top: 30px;
+  border-radius: 5px;
+  padding: 3px;
+}
+.adder{
+  position: relative;
+  width: 250px;
+  margin: 0px auto;
+  display: block;
+}
+.input{
+  outline: none;
+  border: 1px solid rgba(233, 233, 233, 0.151);
+  border-radius: 6px;
+  background: linear-gradient(to right, #30CFD0 0%, #330867 40%);
+  color: white;
+  height: 30px;
+  width: 250px;
+  
+}
+.add{
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 20px;
+  font-weight: 800;
+  line-height: 1.8;
+  cursor: pointer;
+  transition: all 200ms;
+  color: white;
+}
+.draggable{
+  height: 50px;
+  font-weight: 800;
+  list-style-type: none;
+  margin: 2px;
+  margin-left: -30px;
+  width: 400px;
+  line-height: 3.2;
+  cursor: grab;
+  transition: all 200ms;
+  user-select: none;
+  position: relative;
+}
+.draggable:after{
+  content: "<--";
+  right: 7px;
+  font-size: 15px;
+  position: absolute;
+  cursor: grabbing;
+  line-height: 3;
+  transition: all 200ms;
+  transition-timing-function: cubic-bezier(0.48, 0.72, 0.62, 1.5);
+  transform: translateX(120%);
+  opacity: 0;
+}
+.draggable:hover:after{
+  opacity: 1;
+  transform: translate(0);
+}
+.over{
+  transform: scale(1.1, 1.1);
 }
 
                        /* Footer Start */
