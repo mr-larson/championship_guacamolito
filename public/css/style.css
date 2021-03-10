@@ -92,6 +92,7 @@ h2{
   margin-top: 30px;
   border-radius: 5px;
   padding: 3px;
+  margin-top: 60px;
 }
 .adder{
   position: relative;
@@ -103,11 +104,10 @@ h2{
   outline: none;
   border: 1px solid rgba(233, 233, 233, 0.151);
   border-radius: 6px;
-  background: linear-gradient(to right, #30CFD0 0%, #330867 40%);
+  background: linear-gradient(to bottom, #30CFD0,#330867,#330867,#30CFD0);
   color: white;
   height: 30px;
   width: 250px;
-  
 }
 .add{
   position: absolute;
@@ -115,7 +115,7 @@ h2{
   top: 0;
   font-size: 20px;
   font-weight: 800;
-  line-height: 1.8;
+  line-height: 1.7;
   cursor: pointer;
   transition: all 200ms;
   color: white;
