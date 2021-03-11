@@ -1,15 +1,15 @@
 // Test Roster Automatiser
 class Wrestler {
     constructor(name){
-        this.name = name
-        this.attack = Math.floor(Math.random()*10)
-        this.defense = Math.floor(Math.random()*10)
-        this.stamina = Math.floor(Math.random()*10)
-        this.victory = 0
-        this.champion = false
+      this.name = name
+      this.attack = Math.floor(Math.random()*10)
+      this.defense = Math.floor(Math.random()*10)
+      this.stamina = Math.floor(Math.random()*10)
+      this.victory = 0
+      this.champion = false
     }
     calculerScore(){
-        return this.attack +this.defense +this.stamina
+      return this.attack +this.defense +this.stamina
     }
 }
 // Create wrestler
@@ -52,9 +52,9 @@ tableau.push(Yasmina)
 // Affichage du tableau
 let Coding = document.querySelector("#Coding")
 tableau.forEach(element => {
-    let p = document.createElement("p")
-    p.innerText = element.name
-    Coding.appendChild(p)
+  let p = document.createElement("p")
+  p.innerText = element.name
+  Coding.appendChild(p)
 })
 
 // deroulement du combat
@@ -110,7 +110,7 @@ function dragStart(e) {
   dragSrcEl = this
   e.dataTransfer.effectAllowed = 'move'
   e.dataTransfer.setData('text/html', this.innerHTML)
-};
+}
 
 function dragEnter(e) {
   this.classList.add('over')
@@ -140,7 +140,7 @@ function dragEnd(e) {
   let listItens = document.querySelectorAll('.draggable');
   [].forEach.call(listItens, function(item) {
     item.classList.remove('over')
-  });
+  })
   this.style.opacity = '1'
 }
 
@@ -157,7 +157,7 @@ function addEventsDragAndDrop(el) {
 let listItens = document.querySelectorAll('.draggable');
 [].forEach.call(listItens, function(item) {
   addEventsDragAndDrop(item)
-});
+})
 
 // Methodes Nouveau LI
 function addNewItem() {
